@@ -4,7 +4,7 @@ import { ErrorMessage } from "@/components"
 import { BuddyTextField } from "@/components/inputs/buddy-textfield"
 import { ROUTES } from "@/constants"
 import { signinWithEmailAndPasswordActions } from "@/features/auth/actions/signin-with-email-and-password-actions"
-import { Box, Button, Stack } from "@mui/material"
+import { Box, Stack } from "@mui/material"
 import { redirect } from "next/navigation"
 import { useActionState, useEffect } from "react"
 import { LoadingButton } from '@mui/lab'

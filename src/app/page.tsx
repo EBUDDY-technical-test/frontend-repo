@@ -1,14 +1,11 @@
 'use client'
 
 import { SignoutButton } from "@/features/auth/components/signout-button";
-import { Avatar, Container, Menu, Stack, Toolbar, Typography } from "@mui/material";
-import { useAuth } from "@/features/auth/context/auth-provider";
+import { Container, Stack, Toolbar } from "@mui/material";
 import { UserGrid } from "@/features/user/components/user-grid";
 import { AccountPopup } from "@/features/auth/components/mobile-account-popup";
 
 export default function Page() {
-  const { account } = useAuth()
-  
   return (
     <Container>
       <Stack justifyContent="space-between" mb={5}>
