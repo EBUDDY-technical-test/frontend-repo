@@ -1,6 +1,5 @@
 import { formatAccount } from "@/features/auth/helper/format-account";
 import { onAuthStateChanged } from "@/libs/firebase/auth";
-import { firebaseAuth } from "@/libs/firebase/config";
 import { AccountInfo } from "@/types/account-info";
 import { createContext, FC, PropsWithChildren, useContext, useEffect, useState } from "react";
 
@@ -19,13 +18,14 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
   const clearAccount = () => setAccount(null)
   
   useEffect(() => {
-    const subscribe = onAuthStateChanged(async (user) => {
-      console.log(user)
+    const unsubscribe = onAuthStateChanged(async (user) => {
       if (!user) return;
       setAccount(await formatAccount(user))
     })
 
-    return () => { subscribe() }
+    return () => { 
+      unsubscribe();
+    }
   }, [])
   
   return (

@@ -16,7 +16,7 @@ export async function signupWithEmailAndPasswordActions(_: unknown, formData: Fo
     const validData = await signupSchema.validate(data, { abortEarly: false })
     const result = await signUpWithEmailAndPassword(validData)
 
-    const token = await result.user.getIdToken()
+    const token = await result.user.getIdToken(true)
     
     await createSession(token)
 

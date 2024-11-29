@@ -16,13 +16,13 @@ export async function signinWithEmailAndPasswordActions(_: unknown, formData: Fo
     const validData = await signinSchema.validate(data, { abortEarly: false })
     const result = await signInWithEmailAndPassword(validData)
 
-    const token = await result.user.getIdToken()
+    const token = await result.user.getIdToken(true)
 
     await createSession(token)
     
     return {
       success: true,
-      message: 'Message sent successfully!'
+      message: 'Message sent successfully!',
     };
   } catch (error) {
     if (error instanceof FirebaseError) {

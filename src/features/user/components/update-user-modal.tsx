@@ -33,6 +33,7 @@ export const UpdateUserModal: FC<UpdateUserModalProps> = ({
   const onSubmit = async (values: UpdateUserSchema) => {
     try {
       await updateFn(values)
+      handleClose()
     } catch (e) {
       // Show error when request error
     }

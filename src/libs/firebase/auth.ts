@@ -50,7 +50,7 @@ export async function signUpWithEmailAndPassword(data: EmailAndPasswordData) {
 
 export async function signOut() {
   try {
-    await getAuth().signOut();
+    return await getAuth().signOut();
   } catch (error) {
     console.error('Error signing out with Google', error);
   }

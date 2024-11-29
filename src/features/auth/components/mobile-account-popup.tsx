@@ -5,8 +5,6 @@ import { Avatar, Box, Divider, IconButton, ListItemIcon, ListItemText, Menu, Men
 import { useState } from "react";
 
 export const AccountPopup = () => {
-  const { account } = useAuth()
-  
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -16,12 +14,11 @@ export const AccountPopup = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   
   return (
     <Box>
       <IconButton sx={{ p: 0 }} onClick={handleClick}>
-        <Avatar src={account?.avatar ?? ''} />
+        <Avatar />
       </IconButton>
       <Menu
         anchorEl={anchorEl}
@@ -35,11 +32,6 @@ export const AccountPopup = () => {
           }
         }}
       >
-        <Stack p="10px 18px 15px 18px">
-          <Typography fontSize={14} fontWeight={500}>{account?.name}</Typography>
-          <Typography fontSize={12}>{account?.email}</Typography>
-        </Stack>
-        <Divider />
         <MenuItem onClick={signoutActions}>
           <ListItemIcon>
             <Logout fontSize="small" />

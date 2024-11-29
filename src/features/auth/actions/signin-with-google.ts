@@ -11,7 +11,7 @@ export async function signinWithEmailAndPasswordActions(_: unknown, formData: Fo
 
     if (!result) throw new Error('Google sign in failed');
     
-    const token = await result.user.getIdToken()
+    const token = await result.user.getIdToken(true)
 
     await createSession(token)
     

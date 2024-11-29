@@ -9,7 +9,7 @@ import { Edit } from '@mui/icons-material';
 export const UserGrid = () => {
   const { data, isLoading } = useGetUsersQuery('users')
   const [editUser, setEditUser] = useState<User | null>(null)
-
+  
   const handleCloseForm = () => {
     setEditUser(null)
   }

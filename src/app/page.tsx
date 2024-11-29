@@ -15,24 +15,13 @@ export default function Page() {
         {/* Desktop & Tablet */}
         <Toolbar 
           sx={{ 
-            justifyContent: 'space-between',
+            justifyContent: 'flex-end',
             display: {
               xs: 'none',
               sm: 'flex',
             }
           }}
         >
-          <Stack 
-            flexDirection="row" 
-            alignItems="center"
-            gap={2}
-          >
-            <Avatar src={account?.avatar ?? undefined} />
-            <Stack>
-              <Typography fontSize={14} fontWeight={500}>{account?.name}</Typography>
-              <Typography fontSize={12}>{account?.email}</Typography>
-            </Stack>
-          </Stack>
           <SignoutButton />
         </Toolbar>
         {/* Mobile */}
